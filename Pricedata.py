@@ -1,0 +1,10 @@
+import pandas_datareader.data as web
+import datetime as dt
+import pandas as pd
+df1=pd.read_csv('S&P500index.csv')
+stock=df1['Code']
+start=dt.datetime(2013,3,1)
+end= dt.datetime(2017,3,1)
+df1=web.DataReader(stock,'yahoo',start,end)
+df2=df1['Adj Close'].T
+df2.to_csv('pricedata.csv')

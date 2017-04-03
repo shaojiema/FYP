@@ -1,0 +1,19 @@
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Mar 28 16:31:46 2017
+
+@author: Administrator
+"""
+
+period = range(0,756)
+import r2
+import numpy as np
+
+def lmReturn(alpha,beta): 
+    R = []
+    for i in period:
+        R.append(r2.r(alpha,beta,i))
+    return np.mean(R)
+
+def func(x):
+    return lmReturn(x[0], x[1])
